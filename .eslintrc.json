@@ -7,7 +7,6 @@
   "extends": [
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
-    "plugin:json/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -34,11 +33,5 @@
     "no-unused-vars": "error",
     "no-console": "error"
   },
-  "plugins": ["@typescript-eslint", "import", "prettier", "json"],
-  "overrides": [
-    {
-      "files": ["*.json"],
-      "parser": "eslint-plugin-json"
-    }
-  ]
+  "plugins": ["@typescript-eslint", "import", "prettier"]
 }
