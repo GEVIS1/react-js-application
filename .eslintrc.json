@@ -17,12 +17,9 @@
     "extraFileExtensions": [".json"]
   },
   "rules": {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "always",
-        "ts": "never"
+    "import/extensions": [ "warn", {
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "no-multiple-empty-lines": "error",
