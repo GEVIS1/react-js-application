@@ -28,7 +28,9 @@
     "no-extra-parens": "error",
     "no-trailing-spaces": "error",
     "no-unused-vars": "error",
-    "no-console": "error"
+    "no-console": "error",
+    "quotes": ["error", "single"],
+    "jsx-quotes": "error"
   },
   "plugins": ["@typescript-eslint", "import", "prettier"]
 }
