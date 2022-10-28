@@ -2,20 +2,6 @@
  * The header component renders six icon components from material-ui/icons and sits at the top of the page
  */
 
-import './Header.sass';
-
-/**
- * The icons need a data property to set the text to be displayed under them, so we need to extend the HTMLAttributes interface
- */
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    /**
-     * The text to be displayed under the div when it is hovered
-     */
-    data?: string;
-  }
-}
-
 import {
   FlashOn,
   Home,
@@ -47,5 +33,4 @@ const Header: React.FC = () =>
     </div>
   </div>
 ;
-
 export default Header;
