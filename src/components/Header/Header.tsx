@@ -112,37 +112,42 @@ const Header: React.FC = () => {
         <BottomNavigationAction
           disableRipple
           showLabel={true}
-          label="Home"
+          label="H O M E"
           icon={<Home />}
         />
         <BottomNavigationAction
           disableRipple
           showLabel={showTrending}
           onPointerOver={() => setHovered('Trending')}
+          label="T R E N D I N G"
           icon={<FlashOn />}
         />
         <BottomNavigationAction
           disableRipple
           showLabel={showVerified}
           onPointerOver={() => setHovered('Verified')}
+          label="V E R I F I E D"
           icon={<LiveTv />}
         />
         <BottomNavigationAction
           disableRipple
           showLabel={showAccount}
           onPointerOver={() => setHovered('Account')}
+          label="C O L L E C T I O N S"
           icon={<VideoLibrary />}
         />
         <BottomNavigationAction
           disableRipple
           showLabel={showSearch}
           onPointerOver={() => setHovered('Search')}
+          label="S E A R C H"
           icon={<Search />}
         />
         <BottomNavigationAction
           disableRipple
           showLabel={showCollections}
           onPointerOver={() => setHovered('Collections')}
+          label="A C C O U N T"
           icon={<PersonOutline />}
         />
       </BottomNavigation>
