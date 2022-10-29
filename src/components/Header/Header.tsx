@@ -15,32 +15,41 @@ import {
 import {
   BottomNavigation as BottomNavigationOrig,
   BottomNavigationAction as BottomNavigationActionOrig,
-  Container as ContainerOrig,
+  Box as BoxOrig,
   styled,
 } from '@mui/material';
 
 /**
- * Style the background colour of the container
+ * Style the background colour of the Box
  */
-const Container = styled(ContainerOrig)({
+const Box = styled(BoxOrig)({
   backgroundColor: 'transparent',
+  justifyContent: 'flex-start',
 });
 
 /**
- * Style the background colour of the bottomnavigationaction and the colour of the label text
+ * Style the background colour of the BottomNavigationAction and the colour of the label text
  */
 const BottomNavigationAction = styled(BottomNavigationActionOrig)({
   backgroundColor: 'transparent',
+  //maxWidth: '80px',
+  maxWidth: '7vw',
   '& .MuiBottomNavigationAction-label': {
     color: 'white',
+    fontSize: '0.65em',
+    whiteSpace: 'nowrap',
+    // Thanks Grayson!
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;',
   },
 });
 
 /**
- * Style the background colour of the bottomnavigation and the colour of the label text
+ * Style the background colour of the BottomNavigation and the colour of the label text
  */
 const BottomNavigation = styled(BottomNavigationOrig)({
   backgroundColor: 'transparent',
+  justifyContent: 'flex-start',
 });
 
 /**
@@ -107,8 +116,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <Container color="transparent">
-      <BottomNavigation>
+    <Box color="transparent">
+      <BottomNavigation onMouseLeave={() => setHovered(null)}>
         <BottomNavigationAction
           disableRipple
           showLabel={true}
@@ -151,7 +160,7 @@ const Header: React.FC = () => {
           icon={<PersonOutline />}
         />
       </BottomNavigation>
-    </Container>
+    </Box>
   );
 };
 export default Header;
