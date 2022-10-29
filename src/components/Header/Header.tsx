@@ -3,6 +3,7 @@
  * In the header component I have decided to use styled components for the styling of everything.
  */
 
+import { useState } from 'react';
 import {
   FlashOn as FlashOnOrig,
   Home as HomeOrig,
@@ -59,7 +60,52 @@ const [Home, FlashOn, LiveTv, VideoLibrary, Search, PersonOutline] =
     })
   );
 
+type SetHoveredArg =
+  | 'Trending'
+  | 'Verified'
+  | 'Account'
+  | 'Search'
+  | 'Collections'
+  | null;
+
 const Header: React.FC = () => {
+  const [showTrending, setShowTrending] = useState(false);
+  const [showVerified, setShowVerified] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [showCollections, setShowCollections] = useState(false);
+
+  /**
+   * Function to set the showLabel boolean on a particular icon
+   * @param icon Name of the icon whose label to show
+   */
+  const setHovered = (icon: SetHoveredArg) => {
+    setShowTrending(false);
+    setShowVerified(false);
+    setShowAccount(false);
+    setShowSearch(false);
+    setShowCollections(false);
+    switch (icon) {
+      case 'Trending':
+        setShowTrending(true);
+        break;
+      case 'Verified':
+        setShowVerified(true);
+        break;
+      case 'Account':
+        setShowAccount(true);
+        break;
+      case 'Search':
+        setShowSearch(true);
+        break;
+      case 'Collections':
+        setShowCollections(true);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <Container color="transparent">
       <BottomNavigation>
@@ -71,32 +117,32 @@ const Header: React.FC = () => {
         />
         <BottomNavigationAction
           disableRipple
-          showLabel={false}
-          label="Trending"
+          showLabel={showTrending}
+          onPointerOver={() => setHovered('Trending')}
           icon={<FlashOn />}
         />
         <BottomNavigationAction
           disableRipple
-          showLabel={false}
-          label="Verified"
+          showLabel={showVerified}
+          onPointerOver={() => setHovered('Verified')}
           icon={<LiveTv />}
         />
         <BottomNavigationAction
           disableRipple
-          showLabel={false}
-          label="Account"
+          showLabel={showAccount}
+          onPointerOver={() => setHovered('Account')}
           icon={<VideoLibrary />}
         />
         <BottomNavigationAction
           disableRipple
-          showLabel={false}
-          label="Search"
+          showLabel={showSearch}
+          onPointerOver={() => setHovered('Search')}
           icon={<Search />}
         />
         <BottomNavigationAction
           disableRipple
-          showLabel={false}
-          label="Collections"
+          showLabel={showCollections}
+          onPointerOver={() => setHovered('Collections')}
           icon={<PersonOutline />}
         />
       </BottomNavigation>
