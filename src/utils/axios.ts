@@ -11,11 +11,11 @@ type MovieDBLanguages = 'en' | 'ja' | 'zh' | 'es' | 'fr';
  *
  * Use sampledata.ts to get a sample set, and then parse.ts to get a quick overview of the data.
  */
-export interface IMovieDBResponseResults {
+export interface IMovieDBResponseResult {
   adult: boolean;
   backdrop_path: string;
   id: number;
-  name: string;
+  title: string;
   original_language: MovieDBLanguages;
   original_name: string;
   overview: string;
@@ -29,7 +29,7 @@ export interface IMovieDBResponseResults {
 
 export interface IMovieDBResponse {
   page: number;
-  results: IMovieDBResponseResults[];
+  results: IMovieDBResponseResult[];
   total_pages: number;
   total_results: number;
 }

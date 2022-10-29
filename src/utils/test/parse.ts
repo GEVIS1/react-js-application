@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { IMovieDBResponseResults } from '../axios';
+import { IMovieDBResponseResult } from '../axios';
 
 (async () => {
   try {
@@ -8,7 +8,7 @@ import { IMovieDBResponseResults } from '../axios';
     if (!rawData) {
       throw Error('File data is empty.');
     }
-    const data: IMovieDBResponseResults[] = JSON.parse(rawData);
+    const data: IMovieDBResponseResult[] = JSON.parse(rawData);
 
     type NumKeys = {
       [index: string]: number;

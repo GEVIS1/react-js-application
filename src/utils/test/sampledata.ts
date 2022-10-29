@@ -4,10 +4,10 @@
 
 import axios from 'axios';
 import fs from 'fs/promises';
-import { IMovieDBResponse, IMovieDBResponseResults } from '../axios';
+import { IMovieDBResponse, IMovieDBResponseResult } from '../axios';
 
 (async () => {
-  const data: IMovieDBResponseResults[] = [];
+  const data: IMovieDBResponseResult[] = [];
   const url =
     'https://api.themoviedb.org/3/discover/movie?api_key=44a956178dd73105f015fb8978c09a47';
   let i = 2;
