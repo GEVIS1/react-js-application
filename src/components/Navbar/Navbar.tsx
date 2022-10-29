@@ -4,15 +4,15 @@
  */
 
 import { Button, ButtonGroup } from '@mui/material';
+import endpoints from '../../utils/endpoints';
 
 import styles from './Navbar.module.sass';
 
 const Navbar: React.FC = () =>
   <ButtonGroup disableRipple className={styles.ButtonGroup}>
-    <Button className={styles.Button}>One</Button>
-    <Button className={styles.Button}>Two</Button>
-    <Button className={styles.Button}>Three</Button>
+    {endpoints.map((endpoint) =>
+      <Button className={styles.Button}>{endpoint.type}</Button>
+    )}
   </ButtonGroup>
 ;
-
 export default Navbar;
