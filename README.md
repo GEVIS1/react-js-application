@@ -13,6 +13,6 @@ This project uses the TMDB API but is not endorsed or certified by TMDB.
 * How to format code
 
 
-References:
-https://stackoverflow.com/questions/56756522/display-data-attribute-value-with-css
-https://linguinecode.com/post/how-to-add-attributes-to-html-element-in-typescript
+### References:
+* Mark Makes Stuff. (n.d.). Retrieved October 30, 2022, from https://www.markmakesstuff.com/posts/mui-css-modules
+* Style library interoperability - Material UI. (n.d.). Retrieved October 30, 2022, from https://mui.com/material-ui/guides/interoperability/
