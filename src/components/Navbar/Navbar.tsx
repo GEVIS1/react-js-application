@@ -11,7 +11,9 @@ import styles from './Navbar.module.sass';
 const Navbar: React.FC = () =>
   <ButtonGroup disableRipple className={styles.ButtonGroup}>
     {endpoints.map((endpoint) =>
-      <Button className={styles.Button}>{endpoint.type}</Button>
+      <Button key={endpoint.type} className={styles.Button}>
+        {endpoint.type}
+      </Button>
     )}
   </ButtonGroup>
 ;
