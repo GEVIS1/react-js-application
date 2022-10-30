@@ -6,6 +6,10 @@
 
 This project uses the TMDB API but is not endorsed or certified by TMDB.
 
+## Deployment
+<a href="https://assessment-2-react-application.herokuapp.com/">
+  <img src="./media/qr.svg" alt="Heroku stroke logo with a gradient" height="200" />
+</a>
 
 ## TODO:
 * Provide instructions how to setup the development environment after cloning the repo.
