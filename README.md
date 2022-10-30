@@ -1,4 +1,5 @@
 # ID608001: Intermediate Application Development Concepts
+![Tests](https://github.com/otago-polytechnic-bit-courses/assessment-2-react-application-GEVIS1/actions/workflows/tests.yml/badge.svg)
 ## Assessment 2: React Application - The Movie DB
 <a href="https://www.themoviedb.org/"> 
   <img src="./media/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" style="width: 200px" />
