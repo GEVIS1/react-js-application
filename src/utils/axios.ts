@@ -22,7 +22,9 @@ export interface IMovieDBResponseResult {
   poster_path: string;
   genre_ids: number[];
   popularity: number;
-  first_air_date: string;
+  release_date?: string;
+  first_air_date?: string;
+  media_type?: string;
   vote_average: number;
   vote_count: number;
 }
