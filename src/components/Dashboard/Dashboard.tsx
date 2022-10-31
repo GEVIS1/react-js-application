@@ -10,6 +10,7 @@ import axios, {
   IMovieDBResponseResult,
 } from '../../utils/axios';
 import endpoints from '../../utils/endpoints';
+import Grid from '@mui/material/Unstable_Grid2';
 
 const Dashboard: React.FC = () => {
   // TODO: Write actual dashboard
@@ -27,8 +28,24 @@ const Dashboard: React.FC = () => {
   }, []);
 
   if (!movies) return null;
-  const randomMovie = Math.floor(Math.random() * movies.length);
-  return <MovieCard movie={movies[randomMovie]} />;
+  return (
+    <Grid
+      sx={{
+        padding: '0 10vw 0 10vw',
+      }}
+      container
+      spacing={2}
+      disableEqualOverflow
+      columns={16}
+      alignSelf="center"
+    >
+      {movies.map((m) =>
+        <Grid key={m.id} xs={8} display="flex" justifyContent="center">
+          <MovieCard movie={m} />
+        </Grid>
+      )}
+    </Grid>
+  );
 };
 
 export default Dashboard;
