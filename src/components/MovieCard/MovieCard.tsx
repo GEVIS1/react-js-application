@@ -1,4 +1,5 @@
-import { forwardRef } from 'react';
+import { ThumbUp } from '@mui/icons-material';
+import { forwardRef, useState } from 'react';
 import { createUseStyles } from 'react-jss';
 import { IMovieDBResponseResult } from '../../utils/axios';
 
@@ -27,13 +28,28 @@ const useStyles = createUseStyles({
   stats: {
     display: 'none',
   },
+  mediaType: {
+    textTransform: 'capitalize',
+  },
 });
 
 const MovieCard = forwardRef<HTMLDivElement, { movie: IMovieDBResponseResult }>(
   ({ movie }, ref) => {
     const classes = useStyles();
-
     const BASE_URL = 'https://image.tmdb.org/t/p/original';
+    const originalVotes = movie.vote_count;
+
+    const [votes, setVotes] = useState(movie.vote_count);
+
+    const toggleVote = () => {
+      if (votes === movie.vote_count) {
+        setVotes((v) => v + 1);
+      } else {
+        setVotes(originalVotes);
+      }
+    };
+
+    const iconColor = votes > originalVotes ? 'success' : undefined;
 
     return (
       <div ref={ref} className={classes.card}>
@@ -48,14 +64,32 @@ const MovieCard = forwardRef<HTMLDivElement, { movie: IMovieDBResponseResult }>(
           - element: The element to wrap the text in
           - truncateText: The text to append to the end of the truncated text
           - text: The text to truncate
-      */}
+        */}
 
         <h2>{movie.title || movie.original_name}</h2>
 
         {/*
         Declare a span element with the className value - classes.stats. This element will contain the movie's media type,
         release date or first air date and vote count.
-      */}
+        */}
+        <span className={classes.stats}>
+          {movie.media_type ?
+            <span
+              className={classes.mediaType}
+            >{`Media Type: ${movie.media_type}`}</span>
+           : null}{' '}
+          {movie.release_date
+            ? `Release Date: ${movie.release_date}`
+            : movie.first_air_date
+            ? `First Air Date: ${movie.first_air_date}`
+            : null}{' '}
+          <ThumbUp
+            color={iconColor}
+            onClick={() => toggleVote()}
+            sx={{ fontSize: 'small' }}
+          />{' '}
+          {votes}
+        </span>
       </div>
     );
   }
