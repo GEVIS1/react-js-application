@@ -1,6 +1,8 @@
 import { ThumbUp } from '@mui/icons-material';
 import { forwardRef, useState } from 'react';
 import { createUseStyles } from 'react-jss';
+import TextTruncate from 'react-text-truncate';
+
 import { IMovieDBResponseResult } from '../../utils/axios';
 
 const useStyles = createUseStyles({
@@ -65,6 +67,12 @@ const MovieCard = forwardRef<HTMLDivElement, { movie: IMovieDBResponseResult }>(
           - truncateText: The text to append to the end of the truncated text
           - text: The text to truncate
         */}
+        <TextTruncate
+          line={2}
+          element="p"
+          truncateText="…"
+          text={movie.overview}
+        />
 
         <h2>{movie.title || movie.original_name}</h2>
 
