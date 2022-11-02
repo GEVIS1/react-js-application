@@ -1,9 +1,19 @@
 const API_KEY = '44a956178dd73105f015fb8978c09a47';
 
 export interface IEndPoint {
-  type: string;
+  type: Category;
   url: string;
 }
+
+export type Category =
+  | 'Trending'
+  | 'Top Rated'
+  | 'Action'
+  | 'Animation'
+  | 'Comedy'
+  | 'Horror'
+  | 'Romance'
+  | 'Western';
 
 /**
  * Array of themoviedb endpoints
