@@ -4,14 +4,26 @@
  */
 
 import { Button, ButtonGroup } from '@mui/material';
-import endpoints from '../../utils/endpoints';
+import { Dispatch } from 'react';
+import endpoints, { Category } from '../../utils/endpoints';
 
 import styles from './Navbar.module.sass';
 
-const Navbar: React.FC = () =>
+interface INavbarProps {
+  setCategory: Dispatch<React.SetStateAction<Category>>;
+  category: Category;
+}
+
+const Navbar: React.FC<INavbarProps> = ({ category, setCategory }) =>
   <ButtonGroup disableRipple className={styles.ButtonGroup}>
     {endpoints.map((endpoint) =>
-      <Button key={endpoint.type} className={styles.Button}>
+      <Button
+        key={endpoint.type}
+        className={
+          category === endpoint.type ? styles.SelectedButton : styles.Button
+        }
+        onClick={() => setCategory(endpoint.type)}
+      >
         {endpoint.type}
       </Button>
     )}

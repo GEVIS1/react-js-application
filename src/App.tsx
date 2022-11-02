@@ -25,7 +25,7 @@ const App = () => {
        */}
       <StyledEngineProvider injectFirst>
         <Header />
-        <Navbar setCategory={setCategory} />
+        <Navbar category={category} setCategory={setCategory} />
         <Dashboard category={category} />
       </StyledEngineProvider>
     </>

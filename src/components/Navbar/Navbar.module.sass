@@ -1,5 +1,10 @@
+@mixin hovered-or-selected
+  color: #fff
+  border: none
+  background: none
+  
 .Button
-  color: #ccc
+  color: #aaa
   border: none
   background: none
   transition: all 0.2s
@@ -10,10 +15,12 @@
   letter-spacing: -0.03em
 
   &:hover
-    color: #fff
-    border: none
-    background: none
+    @include hovered-or-selected
     scale: 120%
+
+.SelectedButton
+  @extend .Button
+  @include hovered-or-selected
 
 .ButtonGroup
   display: flex
