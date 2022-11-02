@@ -7,15 +7,38 @@
 
 This project uses the TMDB API but is not endorsed or certified by TMDB.
 
-## Deployment
+## Deployed application
 <a href="https://assessment-2-react-application.herokuapp.com/">
   <img src="./media/qr.svg" alt="Heroku stroke logo with a gradient" height="200" />
 </a>
 
-## TODO:
-* Provide instructions how to setup the development environment after cloning the repo.
-* How to lint/fix code
-* How to format code
+## Requirements:
+Node version 17 or greater.
+
+## Quickstart:
+1. `npm start`
+
+## Deployment:
+To deploy your own version of the application simply run the following commands from the cloned repository:
+```shell
+export APPNAME="<your app name>"
+heroku apps:create $APPNAME --buildpack mars/create-react-app
+heroku stack:set heroku-20 -a $APPNAME
+heroku git:remote -a $APPNAME
+git push heroku main
+```
+
+## Linting & Formatting
+Linting and formatting is done automatically on commit,
+but it can also be done manually with the following commands:
+*  `npm run prettier:check`
+*  `npm run prettier:fix`
+*  `npm run lint:fix`
+
+## Tests
+This project uses jest component tests.
+To quickly run all tests execute:
+> `npm test`
 
 
 ### References:
