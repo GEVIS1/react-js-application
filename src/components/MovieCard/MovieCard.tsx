@@ -1,3 +1,8 @@
+/**
+ * The MovieCard component draws a specific movie's poster, title, summary and displays its votes, media and release date when hovered.
+ * It also has a clickable button when hovered next to votes where you can apply your own vote. You can also remove your own vote.
+ */
+
 import { ThumbUp } from '@mui/icons-material';
 import { forwardRef, useState } from 'react';
 import { createUseStyles } from 'react-jss';

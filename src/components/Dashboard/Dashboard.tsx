@@ -1,6 +1,7 @@
 /**
  * The Dashboard fetches the movie data for the selected category and displays it in a grid.
  * The category is state sent down from the App component as a prop.
+ * In the Dashboard component code I have opted for using the sx property to style components.
  */
 
 import { useEffect, useState } from 'react';

@@ -14,6 +14,7 @@ import { Category } from './utils/endpoints';
 
 /**
  * The app component contains the header, navbar and dashboard.
+ * It uses a Styled Engine Provider to make sure my css takes priority without the !important directive
  */
 const App = () => {
   const [category, setCategory] = useState<Category>('Trending');
