@@ -1,31 +1,38 @@
 /**
- * Placeholder dashboard that simply fetches data and displays a MovieCard
+ * The Dashboard fetches the movie data for the selected category and displays it in a grid.
+ * The category is state sent down from the App component as a prop.
  */
 
 import { useEffect, useState } from 'react';
+import Grid from '@mui/material/Unstable_Grid2';
 
 import MovieCard from '../MovieCard/MovieCard';
 import axios, {
   IMovieDBResponse,
   IMovieDBResponseResult,
 } from '../../utils/axios';
-import endpoints from '../../utils/endpoints';
-import Grid from '@mui/material/Unstable_Grid2';
+import endpoints, { Category } from '../../utils/endpoints';
 
-const Dashboard: React.FC = () => {
-  // TODO: Write actual dashboard
+interface IDashboardProps {
+  category: Category;
+}
+
+const Dashboard: React.FC<IDashboardProps> = ({ category }) => {
   const [movies, setMovies] = useState<IMovieDBResponseResult[] | null>(null);
 
   useEffect(() => {
+    const categories = endpoints.map((e) => e.type);
+
+    const endpointIndex = categories.indexOf(category);
+
     const getMovies = async () => {
-      const randomEndpoint = Math.floor(Math.random() * endpoints.length);
       const { data } = await axios.get<IMovieDBResponse>(
-        endpoints[randomEndpoint].url
+        endpoints[endpointIndex].url
       );
       setMovies(data.results);
     };
     getMovies();
-  }, []);
+  }, [category]);
 
   if (!movies) return null;
   return (
