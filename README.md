@@ -18,16 +18,6 @@ Node version 17 or greater.
 ## Quickstart:
 1. `npm start`
 
-## Deployment:
-To deploy your own version of the application simply run the following commands from the cloned repository:
-```shell
-export APPNAME="<your app name>"
-heroku apps:create $APPNAME --buildpack mars/create-react-app
-heroku stack:set heroku-20 -a $APPNAME
-heroku git:remote -a $APPNAME
-git push heroku main
-```
-
 ## Linting & Formatting
 Linting and formatting is done automatically on commit,
 but it can also be done manually with the following commands:
